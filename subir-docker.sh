@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
-# Cria as imagens e sobe os containers do Controle Hospitalar (capítulo 4 da apostila).
-#   hospital_backend_ctner  -> servidor backend  (porta 42000)
-#   hospital_frontend_ctner -> servidor frontend (porta 42100)
-# O banco PostgreSQL deve estar rodando na porta 5432 com o banco "hospital" criado.
-# Uso: bash subir-docker.sh
+
 set -e
 cd "$(dirname "$0")"
 
