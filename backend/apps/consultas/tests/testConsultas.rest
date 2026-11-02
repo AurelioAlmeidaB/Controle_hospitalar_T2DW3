@@ -1,0 +1,58 @@
+### Necessário para pegar o token
+# @name loginAutenticado
+POST http://localhost:42000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "UserName": "qwe",
+    "Password": "qwe"
+}
+
+### Seta o token
+@accessToken = {{loginAutenticado.response.body.$.token}}
+
+### teste de buscar todas as consultas
+GET http://localhost:42000/getAllConsultas HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar consulta por ID
+GET http://localhost:42000/getConsultaByID/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar pacientes para o select de consultas
+GET http://localhost:42000/getPacientesToConsultas HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de inserção de consulta
+POST http://localhost:42000/insertConsulta HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "dataconsulta": "2026-11-10",
+    "medico": "Dr. Paulo Lima",
+    "motivo": "Avaliação cardiológica",
+    "valor": 400.00,
+    "pacienteid": 3
+}
+
+### teste de atualização de consulta
+PUT http://localhost:42000/updateConsulta/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "dataconsulta": "2026-10-05",
+    "medico": "Dra. Ana Souza",
+    "motivo": "Consulta de rotina - check-up",
+    "valor": 260.00,
+    "pacienteid": 1
+}
+
+### teste de remoção de consulta
+DELETE http://localhost:42000/deleteConsulta/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}

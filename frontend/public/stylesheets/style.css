@@ -1,0 +1,31 @@
+/* public/stylesheets/style.css */
+
+.app-shell {
+  min-height: 100vh;
+  background: #f4f6fb;
+}
+
+.page-header {
+  margin-bottom: 1.5rem;
+}
+
+.page-kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-card,
+.page-card,
+.login-card {
+  border-radius: 1rem;
+}
+
+.login-screen {
+  min-height: calc(100vh - 6rem);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+}
