@@ -35,7 +35,8 @@ async function vwGetAllPacientes(servidorDw3, alertBox) {
     var data = await response.json();
 
     if (data.auth === false) {
-      throw new Error(data.message || 'Sessão expirada. Faça login novamente.');
+      dw3SessaoExpirada(); // JWT expirado: volta para a tela de login.
+      return;
     }
 
     if (data.status !== 'ok' || !Array.isArray(data.registro)) {

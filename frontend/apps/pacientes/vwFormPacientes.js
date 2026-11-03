@@ -92,7 +92,9 @@ async function enviarRequisicaoPaciente(caminho, opcoes, mensagemErro) {
   var data = await response.json();
 
   if (data.auth === false) {
-    throw new Error(data.message || 'Sessão expirada. Faça login novamente.');
+    dw3SessaoExpirada(); // JWT expirado: volta para a tela de login.
+    // Promise que nunca termina: interrompe a operação sem mostrar outro alerta de erro.
+    return new Promise(function() {});
   }
 
   if (data.status !== 'ok') {
