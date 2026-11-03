@@ -92,7 +92,7 @@ const DeletePaciente = async (pacienteIDPar) => {
 
     linhasAfetadas = (
       await db.query(
-        "UPDATE pacientes SET " + "removido = true " + "WHERE pacienteid = $1",
+        "UPDATE pacientes SET " + "removido = true " + "WHERE pacienteid = $1 and removido = false",
         [pacienteIDPar]
       )
     ).rowCount;
