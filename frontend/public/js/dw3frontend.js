@@ -42,3 +42,13 @@ function dw3OcultarBotao(id) {
     botao.classList.add('d-none');
   }
 }
+
+// Chamada quando o backend responde auth:false (JWT inválido ou expirado).
+// Limpa os dados da sessão e manda o usuário de volta para a tela de login.
+function dw3SessaoExpirada() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('username');
+  dw3ClearIsLoggedCookie();
+  alert('Sua sessão expirou. Faça login novamente.');
+  window.location.href = '/login';
+}

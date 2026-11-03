@@ -54,7 +54,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       localStorage.setItem('token', token); // Salva o token para ser usado nas chamadas ao backend.
       localStorage.setItem('username', data.username); // Usuário que fez o login.
-      document.cookie = 'IsLogged=true; path=/'; // Usado para verificar se o usuário está ou não logado.
+      // Usado para verificar se o usuário está ou não logado.
+      // max-age de 2 horas, o mesmo tempo de validade do JWT gerado no backend.
+      document.cookie = 'IsLogged=true; path=/; max-age=' + (120 * 60);
       window.location.href = '/home';
 
     } catch (error) {
